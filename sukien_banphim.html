@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sự kiện bàn phím</title>
+</head>
+<body onload="docReady()">
+<img id="doremon" src="doremon.png" height="210" width="200" style="position: absolute;left: 200px;top: 200px"/>
+<script>
+    let imgObject = document.getElementById('doremon');
+    function moveRight() {
+        imgObject.style.left = parseInt(imgObject.style.left) + 5 + 'px';
+    }
+    function moveLeft() {
+        imgObject.style.left = parseInt(imgObject.style.left) - 5 +'px';
+    }
+    function moveUp() {
+        imgObject.style.top = parseInt(imgObject.style.top) - 5 +'px';
+    }
+    function moveDown() {
+        imgObject.style.top = parseInt(imgObject.style.top) + 5 + 'px';
+    }
+    function moveSelection(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                moveLeft();
+                break;
+            case 38:
+                moveUp();
+                break;
+            case 39:
+                moveRight();
+                break;
+            case 40:
+                moveDown();
+                break;
+        }
+    }
+    function docReady() {
+        window.addEventListener('keydown',moveSelection)
+    }
+</script>
+</body>
+</html>
